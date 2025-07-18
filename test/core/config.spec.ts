@@ -1,6 +1,6 @@
-import { createConfigStore } from '../../src/core/config';
 import { ConfigStore } from '@fp8/simple-config';
-import { ConfigData } from '../../src/dto/config.dto';
+import { createConfigStore } from '@proj/core/config';
+import { ConfigData } from '@proj/dto/config.dto';
 
 describe('createConfigStore', () => {
   it('should create a ConfigStore instance with ConfigData', () => {

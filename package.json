@@ -9,12 +9,14 @@
   },
   "packageManager": "yarn@4.9.2",
   "scripts": {
-    "build:ts": "nest build --path ./tsconfig.build.json",
-    "build": "yarn lint && yarn build:ts",
+    "build:clean": "rm -f tsconfig*.tsbuildinfo || true && rm -rf dist",
+    "build:ts": "tsc --project ./tsconfig.build.json",
+    "build": "yarn lint && yarn build:clean && yarn build:ts && yarn test:lib",
     "lint:format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint:ts": "eslint \"{src,test}/**/*.ts\" --fix",
     "lint": "yarn lint:ts && yarn lint:format",
     "test:unit": "FP8_ENV=utest jest --config ./jest.config.ts",
+    "test:lib": "FP8_ENV=utest jest --config ./jest.config.lib.ts",
     "test:debug": "FP8_ENV=utest jest --config ./jest.config.ts --runInBand --bail",
     "test": "yarn test:unit",
     "start": "ts-node --project tsconfig.json -r tsconfig-paths/register src"

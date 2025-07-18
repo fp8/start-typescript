@@ -1,5 +1,5 @@
-import { main } from '../src/index';
-import { CONFIG_DATA } from '../src/start';
+import { main } from '@proj';
+import { CONFIG_DATA } from '@proj/start';
 
 describe('main', () => {
   it('should return a welcome message with the current time', async () => {
