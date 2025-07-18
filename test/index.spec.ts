@@ -15,6 +15,8 @@ describe('main', () => {
     const message = await main();
     expect(message).toContain(`Welcome to ${CONFIG_DATA.name}`);
     // Optionally, check that the message contains a valid ISO date string
-    expect(message).toMatch(/time is now \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/);
+    expect(message).toMatch(
+      /time is now \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/,
+    );
   });
 });
