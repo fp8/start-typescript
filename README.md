@@ -16,7 +16,18 @@ It uses 2 basic packages for all Farport projects:
 
 ## Usage
 
-Clone the repo and remove the `.git` directory making this project as a starting point.  The structure of the project should be usable as is.  The use of `start.ts` encapsulate all the complexity related to project startup.  Some changes needed:
+Assuming that you are creating a new `start-proj` project, do the following:
+
+```bash
+mkdir start-proj
+cd start-proj
+curl -L https://github.com/fp8/start-typescript/archive/refs/tags/0.2.0.tar.gz | tar -xv --strip=1
+```
+
+The structure of the project should be usable as is.  The use of `start.ts` encapsulate all the complexity
+related to project startup.
+
+Some changes needed:
 
 1. Ensure that `etc/local/config.yaml` and `dto/config.dto` contains configuration
 1. Add the actual helpers 
@@ -25,6 +36,12 @@ Make sure to update your `package.json` with:
 
 1. Update the `.name` to your project name
 1. Ensure that `.license` is updated to your desired license
+
+## @proj Alias
+
+The alias `@proj` is created to point to `./src` directory.  This allow you to avoid use of relative reference
+in your code.  Use of `@proj` is specially import in tests as `test:dist` task will switch to use `./dist` so
+the compiled version of code is tested.  This is done at the end of the `build` task.
 
 # Run the sample project
 
