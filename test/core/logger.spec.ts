@@ -1,4 +1,4 @@
-import { LOGGER_NAME, createLogger } from '../../src/core/logger';
+import { LOGGER_NAME, createLogger } from '@proj/core/logger';
 
 describe('Logger', () => {
   it('should create a logger with the default name', () => {

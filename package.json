@@ -1,20 +1,23 @@
-{ 
+{
   "name": "start-typescript",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A project template serving as scaffolding for a Typescript project",
   "author": "marcos.lin@farport.co",
   "license": "MIT",
   "engines": {
-    "node": "^22"
+    "node": ">=22"
   },
   "packageManager": "yarn@4.9.2",
   "scripts": {
-    "build:ts": "nest build --path ./tsconfig.build.json",
-    "build": "yarn lint && yarn build:ts",
+    "build:clean": "rm -f tsconfig*.tsbuildinfo || true && rm -rf dist",
+    "build:ts": "tsc --project ./tsconfig.build.json",
+    "build:alias": "tsc-alias --project ./tsconfig.build.json",
+    "build": "yarn lint && yarn build:clean && yarn build:ts && yarn build:alias && yarn test:dist",
     "lint:format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint:ts": "eslint \"{src,test}/**/*.ts\" --fix",
     "lint": "yarn lint:ts && yarn lint:format",
     "test:unit": "FP8_ENV=utest jest --config ./jest.config.ts",
+    "test:dist": "FP8_ENV=utest jest --config ./jest.config.lib.ts",
     "test:debug": "FP8_ENV=utest jest --config ./jest.config.ts --runInBand --bail",
     "test": "yarn test:unit",
     "start": "ts-node --project tsconfig.json -r tsconfig-paths/register src"
@@ -22,19 +25,21 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
-    "@types/jest": "^29.5.14",
-    "@types/node": "^22.10.7",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.15",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.2",
-    "jest": "^29.7.0",
+    "jest": "^30.0.4",
     "prettier": "^3.4.2",
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.20.0"
+    "typescript-eslint": "^8.20.0",
+    "webpack": "^5.100.2"
   },
   "dependencies": {
     "@fp8/simple-config": "^0.7.0",

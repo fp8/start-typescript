@@ -4,6 +4,10 @@ const config: Config = {
   collectCoverageFrom: ["src/**/*.ts"],
   coverageDirectory: "./coverage",
   moduleFileExtensions: ["js", "ts"],
+  moduleNameMapper: {
+    '^@proj$': '<rootDir>/src/',
+    '^@proj/(.*)$': '<rootDir>/src/$1',
+  },
   rootDir: ".",
   testEnvironment: "node",
   testMatch: ["**/test/*.spec.ts", "**/test/**/*.spec.ts"],
@@ -12,7 +16,7 @@ const config: Config = {
       "ts-jest",
       {
         "ts-jest": {
-          tsconfig: "./tsconfig.test.json",
+          tsconfig: "./tsconfig.json",
         },
       },
     ],

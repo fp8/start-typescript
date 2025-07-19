@@ -1,4 +1,4 @@
-import { getIsoDateString } from '../../src/core/helpers';
+import { getIsoDateString } from '@proj/core/helpers';
 
 describe('index', () => {
   it('should convert date to ISO string', () => {

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
+    "baseUrl": "./",
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -13,6 +13,10 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "outDir": "./dist",
+    "paths": {
+      "@proj": ["src"],
+      "@proj/*": ["src/*"]
+    },
     "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -21,5 +25,7 @@
     "strictBindCallApply": true,
     "strictNullChecks": true,
     "target": "ES2023"
-  }
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules", "app"]
 }
