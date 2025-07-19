@@ -43,6 +43,8 @@ The alias `@proj` is created to point to `./src` directory.  This allow you to a
 in your code.  Use of `@proj` is specially import in tests as `test:dist` task will switch to use `./dist` so
 the compiled version of code is tested.  This is done at the end of the `build` task.
 
+The reference to `@proj` is removed in the `./dist` via the `build:alias` task. 
+
 # Run the sample project
 
 To run this sample app, simple do:
